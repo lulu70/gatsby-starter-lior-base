@@ -26,15 +26,15 @@ const CookieConsent = () => {
 
   return !cookieConcent ? (
     <div
-      className="bg-gray-300 w-full text-xs z-40 fixed bottom-0 small m-0 text-center py-2 "
+      className="bg-gray-900 w-full z-40 fixed bottom-0 small m-0 text-center py-2 text-gray-100"
       role="alert"
     >
       We are using cookies to ensure best experience on our website.{" "}
-      <Link to="/policies/privacy-policy" className="text-blue-500">
+      <Link to="/policies/privacy-policy" className="text-yellow-400">
         Learn more
       </Link>{" "}
       <FocusedButton
-        className="border border-black p-1 rounded-sm"
+        className="border border-gray-50 p-1 rounded-sm"
         onClick={handleClick}
       >
         Got it!

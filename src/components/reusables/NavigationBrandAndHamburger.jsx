@@ -22,6 +22,7 @@ const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
       <div id="hamburger-container" className="lg:hidden text-white">
         <FocusedButton
           className="z-10 relative block w-8"
+          aria-label="menu"
           onClick={() => {
             setIsOpen(isOpen => !isOpen)
           }}
