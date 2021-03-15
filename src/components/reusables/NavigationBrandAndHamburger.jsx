@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import FocusedButton from "./FocusedButton"
 import { StaticImage } from "gatsby-plugin-image"
+import useTabIsUsed from "../../hooks/useTabIsUsed"
 const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
+  const tabIsUsed = useTabIsUsed()
   return (
     <div
       id="brand-and-hamburger-container"
@@ -20,8 +21,10 @@ const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
         </Link>
       </div>
       <div id="hamburger-container" className="lg:hidden text-white">
-        <FocusedButton
-          className="z-10 relative block w-8"
+        <button
+          className={`z-10 relative block w-8 ${
+            tabIsUsed ? "" : "focus:outline-none"
+          }`}
           aria-label="menu"
           onClick={() => {
             setIsOpen(isOpen => !isOpen)
@@ -49,7 +52,7 @@ const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
               />
             )}
           </svg>
-        </FocusedButton>
+        </button>
       </div>
     </div>
   )

@@ -1,10 +1,7 @@
 import React from "react"
-import isBrowser from "../../helpers/isBrowser"
-
-const FocusedButton = ({ className, focusedClassNames, ...props }) => {
-  // tab is used by user state
+import isBrowser from "../helpers/isBrowser"
+const useTabIsUsed = () => {
   const [tabIsUsed, setTabIseUsed] = React.useState(false)
-
   // keydown event listener to check if user is tabbing
   React.useEffect(() => {
     function handleFirstTab(e) {
@@ -36,13 +33,7 @@ const FocusedButton = ({ className, focusedClassNames, ...props }) => {
       }
     }
   }, [])
-
-  // defining the right focus styles based on: if user is tabbing and if there is a costume focused class names
-
-  const focusedStyles = tabIsUsed
-    ? focusedClassNames || ""
-    : "focus:outline-none"
-  return <button className={focusedStyles + " " + className} {...props} />
+  return tabIsUsed
 }
 
-export default FocusedButton
+export default useTabIsUsed
