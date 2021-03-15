@@ -31,7 +31,7 @@ const CookieConsent = () => {
     >
       We are using cookies to ensure best experience on our website.{" "}
       <Link to="/policies/privacy-policy" className="text-yellow-400">
-        Learn more
+        Privacy policy
       </Link>{" "}
       <FocusedButton
         className="border border-gray-50 p-1 rounded-sm"
