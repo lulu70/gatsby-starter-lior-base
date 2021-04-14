@@ -1,8 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import useTabIsUsed from "../../hooks/useTabIsUsed"
+import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 
 const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
+  const tabIsUsed = useTabIsUsed()
+
   const links = [
     { id: 0, text: "Account Settings", slug: "/" },
     { id: 1, text: "Support", slug: "/" },
@@ -56,7 +60,9 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
                 <Link
                   key={id}
                   to={slug}
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-900 hover:text-white"
+                  className={`block px-4 py-2 text-gray-800 hover:bg-gray-900 hover:text-white ${getClassNamesByTabIsUsedState(
+                    tabIsUsed
+                  )}`}
                 >
                   {text}
                 </Link>
@@ -87,9 +93,9 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
               <Link
                 key={id}
                 to={slug}
-                className={`block text-gray-400 ${
-                  index > 0 && "mt-2"
-                } hover:text-white`}
+                className={`block text-gray-400 ${getClassNamesByTabIsUsedState(
+                  tabIsUsed
+                )} ${index > 0 && "mt-2"} hover:text-white`}
               >
                 {text}
               </Link>

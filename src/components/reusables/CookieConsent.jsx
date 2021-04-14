@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import MainContext, { setCookieConcent } from "../../context/MainContext"
 import isBrowser from "../../helpers/isBrowser"
 import useTabIsUsed from "../../hooks/useTabIsUsed"
+import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 
 const CookieConsent = () => {
   const { cookieConcent, mainContextDispatch } = React.useContext(MainContext)
@@ -35,9 +36,9 @@ const CookieConsent = () => {
         Privacy policy
       </Link>{" "}
       <button
-        className={`border border-gray-50 p-1 rounded-sm ${
-          tabIsUsed ? "" : "focus:outline-none"
-        }`}
+        className={`border border-gray-50 p-1 rounded-sm ${getClassNamesByTabIsUsedState(
+          tabIsUsed
+        )}`}
         onClick={handleClick}
       >
         Got it!

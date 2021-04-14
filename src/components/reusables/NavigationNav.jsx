@@ -32,7 +32,7 @@ const NavigationNav = ({ isOpen }) => {
             to={slug}
             className={`mt-${
               index > 0 ? 1 : 0
-            } lg:mt-0 lg:ml-2 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800`}
+            } lg:mt-0 lg:ml-2 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 focus`}
           >
             {text}
           </Link>
