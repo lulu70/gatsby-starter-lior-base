@@ -30,6 +30,7 @@ const ScrollTopButton = () => {
   return showScroll ? (
     <button
       type="button"
+      aria-label="scroll to top"
       className={`bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded-md fixed right-2 bottom-2 z-50 ${getClassNamesByTabIsUsedState(
         tabIsUsed
       )}`}
