@@ -8,10 +8,10 @@ const Layout = ({ children }) => {
   return (
     <div
       id="layout-wrapper"
-      className="relative overflow-hidden flex flex-col min-h-screen hd:max-w-screen-hd hd:m-auto"
+      className="relative overflow-hidden flex flex-col min-h-screen"
     >
       <Navigation />
-      <main className="container-fluid">{children}</main>
+      <main>{children}</main>
       <Footer />
       <CookieConsent />
       <ScrollTopButton />

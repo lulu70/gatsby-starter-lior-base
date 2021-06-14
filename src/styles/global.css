@@ -2,16 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.focus {
-  @apply focus:outline-none focus:ring-4 focus:ring-blue-600 focus:shadow-2xl focus:rounded-lg;
+@layer base {
+  * ::selection {
+    @apply bg-blue-600 text-white;
+  }
+
+  * ::-moz-selection {
+    @apply bg-blue-600 text-white;
+  }
 }
 
-* ::selection {
-  background-color: #fbbf24;
-  color: black;
-}
-
-* ::-moz-selection {
-  background-color: #fbbf24;
-  color: black;
+@layer utilities {
+  .focus {
+    @apply focus:outline-none focus:ring-4 focus:ring-blue-600 focus:shadow-2xl focus:rounded-lg;
+  }
 }
