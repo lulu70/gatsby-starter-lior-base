@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * ::selection {
-    @apply bg-blue-600 text-white;
-  }
-
-  * ::-moz-selection {
-    @apply bg-blue-600 text-white;
-  }
-}
-
 @layer utilities {
   .focus {
     @apply focus:outline-none focus:ring-4 focus:ring-blue-600 focus:shadow-2xl focus:rounded-lg;

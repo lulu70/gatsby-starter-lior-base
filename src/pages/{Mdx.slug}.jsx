@@ -2,14 +2,14 @@ import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import Layout from "../components/reusables/Layout"
-import SEO from "../components/reusables/seo"
+import SeoComponent from "../components/reusables/SeoComponent"
 
 export default function Home({ data }) {
   const mdx = data.mdx.childMdx
   const image = getImage(mdx.frontmatter.image)
   return (
     <>
-      <SEO title={mdx.frontmatter.title} />
+      <SeoComponent title={mdx.frontmatter.title} />
       <Layout>
         <section id="main" className="my-10">
           <h1 className="text-center font-bold text-4xl">

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div
       id="layout-wrapper"
-      className="relative overflow-hidden flex flex-col min-h-screen"
+      className="relative overflow-hidden flex flex-col min-h-screen selection:bg-blue-600 selection:text-white"
     >
       <Navigation />
       <main>{children}</main>
