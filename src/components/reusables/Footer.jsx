@@ -35,7 +35,7 @@ const Footer = () => {
   return (
     <footer className="mt-auto pb-5">
       <div className="w-5/6 lg:w-2/3 text-center mx-auto">
-        <nav className="flex flex-col lg:flex-row items-center mx-auto text-sm border-t border-b py-3 lg:space-x-5">
+        <nav className="flex flex-col lg:flex-row items-center justify-center mx-auto text-sm border-t border-b py-3 lg:space-x-5">
           {links.map(link => (
             <Link
               key={link.id}
