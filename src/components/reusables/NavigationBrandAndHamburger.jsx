@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import useTabIsUsed from "../../hooks/useTabIsUsed"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
+import MainContext from "../../context/MainContext"
+
 const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
-  const tabIsUsed = useTabIsUsed()
+  const { tabIsUsed } = React.useContext(MainContext)
   return (
     <div
       id="brand-and-hamburger-container"

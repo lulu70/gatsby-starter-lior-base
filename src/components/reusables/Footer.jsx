@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
-import useTabIsUsed from "../../hooks/useTabIsUsed"
+import MainContext from "../../context/MainContext"
 
 const Footer = () => {
-  const tabIsUsed = useTabIsUsed()
+  const { tabIsUsed } = React.useContext(MainContext)
   const links = [
     {
       id: 0,

@@ -1,7 +1,7 @@
 import React from "react"
 import debounce from "lodash/debounce"
-import useTabIsUsed from "../../hooks/useTabIsUsed"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
+import MainContext from "../../context/MainContext"
 
 const ScrollTopButton = () => {
   const [showScroll, setShowScroll] = React.useState(false)
@@ -21,7 +21,7 @@ const ScrollTopButton = () => {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [showScroll])
-  const tabIsUsed = useTabIsUsed()
+  const { tabIsUsed } = React.useContext(MainContext)
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })

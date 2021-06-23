@@ -1,12 +1,12 @@
 import React from "react"
 import isBrowser from "../helpers/isBrowser"
-const useTabIsUsed = () => {
-  const [tabIsUsed, setTabIseUsed] = React.useState(false)
+
+const useTabIsUsed = ({ mainContextDispatch, setTabIsUsed }) => {
   // keydown event listener to check if user is tabbing
   React.useEffect(() => {
     function handleFirstTab(e) {
       if (e.code === "Tab") {
-        setTabIseUsed(true)
+        setTabIsUsed(mainContextDispatch, true)
       }
     }
     if (isBrowser()) {
@@ -17,12 +17,12 @@ const useTabIsUsed = () => {
         window.removeEventListener("keydown", handleFirstTab)
       }
     }
-  }, [])
+  }, [mainContextDispatch, setTabIsUsed])
 
   // mousedown event listener to check if user is not tabbing
   React.useEffect(() => {
     function handleMouseDownOnce() {
-      setTabIseUsed(false)
+      setTabIsUsed(mainContextDispatch, false)
     }
     if (isBrowser()) {
       window.addEventListener("mousedown", handleMouseDownOnce)
@@ -32,8 +32,7 @@ const useTabIsUsed = () => {
         window.removeEventListener("mousedown", handleMouseDownOnce)
       }
     }
-  }, [])
-  return tabIsUsed
+  }, [setTabIsUsed, mainContextDispatch])
 }
 
 export default useTabIsUsed

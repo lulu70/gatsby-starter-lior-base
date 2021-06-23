@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import useTabIsUsed from "../../hooks/useTabIsUsed"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
+import MainContext from "../../context/MainContext"
 
 const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
-  const tabIsUsed = useTabIsUsed()
+  const { tabIsUsed } = React.useContext(MainContext)
 
   const links = [
     { id: 0, text: "Account Settings", slug: "/" },

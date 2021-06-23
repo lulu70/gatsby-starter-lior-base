@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
+import MainContext from "../../context/MainContext"
+import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 
 const NavigationNav = ({ isOpen }) => {
   const links = [
@@ -19,7 +21,7 @@ const NavigationNav = ({ isOpen }) => {
       slug: "/forth-page",
     },
   ]
-
+  const { tabIsUsed } = React.useContext(MainContext)
   return (
     <nav
       id="links-container"
@@ -32,7 +34,9 @@ const NavigationNav = ({ isOpen }) => {
             to={slug}
             className={`mt-${
               index > 0 ? 1 : 0
-            } lg:mt-0 lg:ml-2 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 focus`}
+            } lg:mt-0 lg:ml-2 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 ${getClassNamesByTabIsUsedState(
+              tabIsUsed
+            )}`}
           >
             {text}
           </Link>

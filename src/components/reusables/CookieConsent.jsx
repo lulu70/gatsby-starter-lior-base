@@ -2,12 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import MainContext, { setCookieConcent } from "../../context/MainContext"
 import isBrowser from "../../helpers/isBrowser"
-import useTabIsUsed from "../../hooks/useTabIsUsed"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 
 const CookieConsent = () => {
-  const { cookieConcent, mainContextDispatch } = React.useContext(MainContext)
-
+  const { cookieConcent, mainContextDispatch, tabIsUsed } = React.useContext(
+    MainContext
+  )
   //set cookie concent from local storage
   React.useEffect(() => {
     const cookieConcent = isBrowser()
@@ -24,7 +24,6 @@ const CookieConsent = () => {
       localStorage.setItem("cookie_concent", "true")
     }
   }
-  const tabIsUsed = useTabIsUsed()
 
   return !cookieConcent ? (
     <div
@@ -32,7 +31,12 @@ const CookieConsent = () => {
       role="alert"
     >
       We are using cookies to ensure best experience on our website.{" "}
-      <Link to="/policies/privacy-policy" className="text-yellow-400">
+      <Link
+        to="/policies/privacy-policy"
+        className={`text-yellow-400 ${getClassNamesByTabIsUsedState(
+          tabIsUsed
+        )}`}
+      >
         Privacy policy
       </Link>{" "}
       <button

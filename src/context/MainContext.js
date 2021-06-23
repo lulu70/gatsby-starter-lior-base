@@ -4,10 +4,12 @@ const MainContext = React.createContext()
 
 export const initialStoreState = {
   cookieConcent: false,
+  tabIsUsed: false,
 }
 
 const types = {
   setCookieConcent: "SET_COOKIE_CONCENT",
+  setTabIsUsed: "SET_TAB_IS_USED",
 }
 
 export const setCookieConcent = (dispatch, payload) => {
@@ -16,13 +18,25 @@ export const setCookieConcent = (dispatch, payload) => {
     payload,
   })
 }
+export const setTabIsUsed = (dispatch, payload) => {
+  dispatch({
+    type: types.setTabIsUsed,
+    payload,
+  })
+}
 
 export const mainContextReducer = (state, { type, payload }) => {
   switch (type) {
-    case "SET_COOKIE_CONCENT": {
+    case types.setCookieConcent: {
       return {
         ...state,
         cookieConcent: payload,
+      }
+    }
+    case types.setTabIsUsed: {
+      return {
+        ...state,
+        tabIsUsed: payload,
       }
     }
     default:
