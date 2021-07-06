@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 import MainContext from "../../context/MainContext"
+import classNames from "classnames"
 
 const Footer = () => {
   const { tabIsUsed } = React.useContext(MainContext)
@@ -39,9 +40,10 @@ const Footer = () => {
           {links.map(link => (
             <Link
               key={link.id}
-              className={`text-gray-500 ${getClassNamesByTabIsUsedState(
-                tabIsUsed
-              )}`}
+              className={classNames(
+                "text-gray-500",
+                getClassNamesByTabIsUsedState(tabIsUsed)
+              )}
               to={link.slug}
             >
               {link.text}

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 import MainContext from "../../context/MainContext"
+import classNames from "classnames"
 
 const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
   const { tabIsUsed } = React.useContext(MainContext)
@@ -14,7 +15,10 @@ const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
       <div id="brand-container">
         <Link
           to="/"
-          className={`${getClassNamesByTabIsUsedState(tabIsUsed)} flex`}
+          className={classNames(
+            getClassNamesByTabIsUsedState(tabIsUsed),
+            "flex"
+          )}
         >
           <StaticImage
             className="w-12 h-12 rounded-full"
@@ -27,9 +31,10 @@ const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
       </div>
       <div id="hamburger-container" className="lg:hidden text-white">
         <button
-          className={` z-10 relative block w-8 ${getClassNamesByTabIsUsedState(
-            tabIsUsed
-          )}`}
+          className={classNames(
+            "z-10 relative block w-8",
+            getClassNamesByTabIsUsedState(tabIsUsed)
+          )}
           aria-label="menu"
           onClick={() => {
             setIsOpen(isOpen => !isOpen)

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 import MainContext from "../../context/MainContext"
+import classNames from "classnames"
 
 const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
   const { tabIsUsed } = React.useContext(MainContext)
@@ -28,7 +29,11 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
     <>
       <div
         id="desktop-menu"
-        className={`relative hidden z-10 lg:block lg:ml-6 ${className} lg:ml-auto`}
+        className={classNames(
+          "relative hidden z-10 lg:block lg:ml-6",
+          className,
+          "lg:ml-auto"
+        )}
       >
         <button
           className="relative block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white"
@@ -60,9 +65,10 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
                 <Link
                   key={id}
                   to={slug}
-                  className={`block px-4 py-2 text-gray-800 hover:bg-gray-900 hover:text-white ${getClassNamesByTabIsUsedState(
-                    tabIsUsed
-                  )}`}
+                  className={classNames(
+                    "block px-4 py-2 text-gray-800 hover:bg-gray-900 hover:text-white",
+                    getClassNamesByTabIsUsedState(tabIsUsed)
+                  )}
                 >
                   {text}
                 </Link>
@@ -93,9 +99,12 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
               <Link
                 key={id}
                 to={slug}
-                className={`block text-gray-400 ${getClassNamesByTabIsUsedState(
-                  tabIsUsed
-                )} ${index > 0 && "mt-2"} hover:text-white`}
+                className={classNames(
+                  "block text-gray-400",
+                  getClassNamesByTabIsUsedState(tabIsUsed),
+                  { "mt-2": index > 0 },
+                  "hover:text-white"
+                )}
               >
                 {text}
               </Link>

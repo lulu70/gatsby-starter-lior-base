@@ -2,6 +2,7 @@ import React from "react"
 import debounce from "lodash/debounce"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 import MainContext from "../../context/MainContext"
+import classNames from "classnames"
 
 const ScrollTopButton = () => {
   const [showScroll, setShowScroll] = React.useState(false)
@@ -31,9 +32,10 @@ const ScrollTopButton = () => {
     <button
       type="button"
       aria-label="scroll to top"
-      className={`bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded-md fixed right-2 bottom-2 z-50 ${getClassNamesByTabIsUsedState(
-        tabIsUsed
-      )}`}
+      className={classNames(
+        "bg-gray-600 hover:bg-gray-500 px-2 py-1 rounded-md fixed right-2 bottom-2 z-50",
+        getClassNamesByTabIsUsedState(tabIsUsed)
+      )}
       onClick={scrollTop}
     >
       <svg
