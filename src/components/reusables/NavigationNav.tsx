@@ -4,7 +4,11 @@ import MainContext from "../../context/MainContext"
 import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUsedState"
 import classNames from "classnames"
 
-const NavigationNav = ({ isOpen }) => {
+interface NavigationNavProps {
+  isOpen: boolean
+}
+
+const NavigationNav = ({ isOpen }: NavigationNavProps) => {
   const links = [
     {
       id: 0,

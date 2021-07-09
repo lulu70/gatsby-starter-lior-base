@@ -1,12 +1,12 @@
 import React from "react"
+import useTabIsUsed from "../hooks/useTabIsUsed"
 import MainContext, {
-  mainContextReducer,
   initialStoreState,
+  mainContextReducer,
   setTabIsUsed,
 } from "./MainContext"
-import useTabIsUsed from "../hooks/useTabIsUsed"
 
-const MainContextProvider = ({ children }) => {
+const MainContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [mainContextStore, mainContextDispatch] = React.useReducer(
     mainContextReducer,
     initialStoreState

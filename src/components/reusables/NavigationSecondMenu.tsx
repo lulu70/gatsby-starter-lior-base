@@ -5,7 +5,14 @@ import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUse
 import MainContext from "../../context/MainContext"
 import classNames from "classnames"
 
-const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
+interface NavigationSecondMenuProps {
+  mainNavIsOpen: boolean
+  className?: string
+}
+const NavigationSecondMenu = ({
+  className,
+  mainNavIsOpen,
+}: NavigationSecondMenuProps) => {
   const { tabIsUsed } = React.useContext(MainContext)
 
   const links = [
@@ -15,7 +22,7 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
   ]
   const [isOpen, setIsOpen] = React.useState(false)
   React.useEffect(() => {
-    function handleKeydown(e) {
+    function handleKeydown(e: KeyboardEvent) {
       if (e.key === "Esc" || e.key === "Escape") {
         setIsOpen(false)
       }
@@ -53,7 +60,7 @@ const NavigationSecondMenu = ({ className, mainNavIsOpen }) => {
           <>
             <button
               className="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"
-              tabIndex="-1"
+              tabIndex={-1}
               onClick={() => setIsOpen(false)}
               aria-label="layout"
             />
