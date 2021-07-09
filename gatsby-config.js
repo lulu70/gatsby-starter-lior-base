@@ -14,6 +14,7 @@ module.exports = {
     image: "/image-name.jpg",
   },
   plugins: [
+    // `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
 

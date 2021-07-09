@@ -2,7 +2,6 @@ import React from "react"
 import Layout from "../components/reusables/Layout"
 import SeoComponent from "../components/reusables/SeoComponent"
 import { StaticImage } from "gatsby-plugin-image"
-
 export default function Home() {
   return (
     <>
