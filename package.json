@@ -10,6 +10,7 @@
     "start": "yarn run dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean && yarn start",
+    "type-check": "tsc --noEmit --watch",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "push": "git push && ntl open",
@@ -51,7 +52,8 @@
     "gatsby-plugin-perf-budgets": "^0.0.17",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.20",
     "js-conditional-compile-loader": "^1.0.14",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "typescript": "^4.3.5"
   },
   "repository": {
     "type": "git",

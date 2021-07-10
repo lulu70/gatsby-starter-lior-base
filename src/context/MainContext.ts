@@ -6,7 +6,7 @@ export const initialStoreState = {
 }
 
 interface MainContextAction {
-  type: string
+  type: "SET_COOKIE_CONCENT" | "SET_TAB_IS_USED"
   payload: boolean
 }
 
@@ -19,17 +19,12 @@ const MainContext = React.createContext({
   mainContextDispatch: defaultDispatch,
 })
 
-const types = {
-  setCookieConcent: "SET_COOKIE_CONCENT",
-  setTabIsUsed: "SET_TAB_IS_USED",
-}
-
 export const setCookieConcent = (
   dispatch: MainContextDispatch,
   payload: boolean
 ) => {
   dispatch({
-    type: types.setCookieConcent,
+    type: "SET_COOKIE_CONCENT",
     payload,
   })
 }
@@ -38,7 +33,7 @@ export const setTabIsUsed = (
   payload: boolean
 ) => {
   dispatch({
-    type: types.setTabIsUsed,
+    type: "SET_TAB_IS_USED",
     payload,
   })
 }
@@ -48,13 +43,13 @@ export const mainContextReducer = (
   { type, payload }: MainContextAction
 ) => {
   switch (type) {
-    case types.setCookieConcent: {
+    case "SET_COOKIE_CONCENT": {
       return {
         ...state,
         cookieConcent: payload,
       }
     }
-    case types.setTabIsUsed: {
+    case "SET_TAB_IS_USED": {
       return {
         ...state,
         tabIsUsed: payload,
