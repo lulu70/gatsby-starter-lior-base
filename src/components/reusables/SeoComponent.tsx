@@ -17,7 +17,7 @@ function SeoComponent({
   description,
   image,
   location,
-  lang,
+  lang = "en",
   meta = [],
   keywords = [],
   title,
