@@ -1,10 +1,10 @@
 import React from "react"
-import Navigation from "./Navigation.jsx"
-import ScrollTopButton from "./ScrollTopButton.jsx"
-import Footer from "./Footer.jsx"
+import Navigation from "./Navigation"
+import ScrollTopButton from "./ScrollTopButton"
+import Footer from "./Footer"
 import CookieConsent from "./CookieConsent"
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       id="layout-wrapper"

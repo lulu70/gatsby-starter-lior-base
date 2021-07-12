@@ -1,27 +1,33 @@
 import React from "react"
 import Layout from "./Layout"
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { hasError: false, error: null, errorInfo: null }
+interface ErrorBoundaryProps {
+  children: React.ReactNode
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean
+}
+
+class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  public state: ErrorBoundaryState = {
+    hasError: false,
   }
 
-  static getDerivedStateFromError(error) {
+  public static getDerivedStateFromError(_: Error): ErrorBoundaryState {
     // Update state so the next render will show the fallback UI.
     return { hasError: true }
   }
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({
-      error,
-      errorInfo,
-    })
+  public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error("Uncaught error:", error, errorInfo)
   }
 
-  render() {
+  public render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return (
         <Layout>
           <section id="error-boundary" className="mt-32 text-center mx-auto">
@@ -35,4 +41,5 @@ class ErrorBoundary extends React.Component {
     return this.props.children
   }
 }
+
 export default ErrorBoundary

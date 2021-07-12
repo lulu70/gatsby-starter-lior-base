@@ -1,17 +1,27 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
+import { WindowLocation } from "@reach/router"
+
+interface SeoComponentProps {
+  description?: string
+  image?: string
+  location?: WindowLocation
+  lang?: string
+  meta?: []
+  keywords?: string[]
+  title: string
+}
 
 function SeoComponent({
   description,
   image,
   location,
-  lang,
-  meta,
-  keywords,
+  lang = "en",
+  meta = [],
+  keywords = [],
   title,
-}) {
+}: SeoComponentProps) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -104,20 +114,6 @@ function SeoComponent({
       }}
     />
   )
-}
-
-SeoComponent.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-}
-
-SeoComponent.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SeoComponent

@@ -14,6 +14,12 @@ module.exports = {
     image: "/image-name.jpg",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        documentPaths: ["./src/**/*.{js,jsx,ts,tsx}"],
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
 

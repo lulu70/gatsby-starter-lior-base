@@ -5,7 +5,14 @@ import getClassNamesByTabIsUsedState from "../../helpers/getClassNamesByTabIsUse
 import MainContext from "../../context/MainContext"
 import classNames from "classnames"
 
-const NavigationBrandAndHamburger = ({ isOpen, setIsOpen }) => {
+interface NavigationBrandAndHamburgerProps {
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+const NavigationBrandAndHamburger = ({
+  isOpen,
+  setIsOpen,
+}: NavigationBrandAndHamburgerProps) => {
   const { tabIsUsed } = React.useContext(MainContext)
   return (
     <div

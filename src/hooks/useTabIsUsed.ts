@@ -1,10 +1,19 @@
 import React from "react"
 import isBrowser from "../helpers/isBrowser"
+import { MainContextDispatch } from "../context/MainContext"
 
-const useTabIsUsed = ({ mainContextDispatch, setTabIsUsed }) => {
+interface useTabIsUsedProps {
+  mainContextDispatch: MainContextDispatch
+  setTabIsUsed: (dispatch: MainContextDispatch, payload: boolean) => void
+}
+
+const useTabIsUsed = ({
+  mainContextDispatch,
+  setTabIsUsed,
+}: useTabIsUsedProps) => {
   // keydown event listener to check if user is tabbing
   React.useEffect(() => {
-    function handleFirstTab(e) {
+    function handleFirstTab(e: KeyboardEvent) {
       if (e.code === "Tab") {
         setTabIsUsed(mainContextDispatch, true)
       }
