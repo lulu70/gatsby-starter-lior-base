@@ -1,11 +1,11 @@
 import React from "react"
 import Layout from "../components/reusables/Layout"
-import SeoComponent from "../components/reusables/SeoComponent"
+import SEO from "../components/reusables/SEO"
 import { StaticImage } from "gatsby-plugin-image"
 export default function Home() {
   return (
     <>
-      <SeoComponent title="Home" />
+      <SEO title="Home" />
       <Layout>
         <section id="main" className="my-10">
           <h1 className="text-center font-bold text-4xl">Hello World</h1>

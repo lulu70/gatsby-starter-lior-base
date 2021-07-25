@@ -3,7 +3,7 @@ import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 import { WindowLocation } from "@reach/router"
 
-interface SeoComponentProps {
+interface SEOProps {
   description?: string
   image?: string
   location?: WindowLocation
@@ -16,7 +16,7 @@ interface SeoComponentProps {
   title: string
 }
 
-function SeoComponent({
+function SEO({
   description,
   image,
   location,
@@ -24,7 +24,7 @@ function SeoComponent({
   meta,
   keywords = [],
   title,
-}: SeoComponentProps) {
+}: SEOProps) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -119,7 +119,7 @@ function SeoComponent({
   )
 }
 
-export default SeoComponent
+export default SEO
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {

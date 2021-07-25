@@ -2,7 +2,7 @@ import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import Layout from "../components/reusables/Layout"
-import SeoComponent from "../components/reusables/SeoComponent"
+import SEO from "../components/reusables/SEO"
 import { TemplatePageQuery } from "../../graphql-types"
 
 export default function Home({ data }: { data: TemplatePageQuery }) {
@@ -14,7 +14,7 @@ export default function Home({ data }: { data: TemplatePageQuery }) {
 
   return (
     <>
-      <SeoComponent title={mdx?.frontmatter?.title ?? ""} />
+      <SEO title={mdx?.frontmatter?.title ?? ""} />
       <Layout>
         <section id="main" className="my-10">
           <h1 className="text-center font-bold text-4xl">
