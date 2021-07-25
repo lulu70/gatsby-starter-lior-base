@@ -8,7 +8,10 @@ interface SeoComponentProps {
   image?: string
   location?: WindowLocation
   lang?: string
-  meta?: []
+  meta?: ConcatArray<
+    | { name: string; content: string | number }
+    | { property: string; content: string | number }
+  >
   keywords?: string[]
   title: string
 }
@@ -18,7 +21,7 @@ function SeoComponent({
   image,
   location,
   lang = "en",
-  meta = [],
+  meta,
   keywords = [],
   title,
 }: SeoComponentProps) {
@@ -108,7 +111,7 @@ function SeoComponent({
                     }
                   : []
               )
-              .concat(meta)}
+              .concat(meta || [])}
           />
         )
       }}
